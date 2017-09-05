@@ -1,0 +1,7 @@
+1.letax
+按照http://blog.sina.com.cn/s/blog_5e16f1770100fw68.html来生成bib文件，出现问题： warning I didn't find a database entry
+将文件名全部改成英文，work！
+re：http://blog.sina.com.cn/s/blog_51f09f640100xxd1.html
+2.再次出现cuda两个failed to synchronize/ endeque
+在TensorFlow-vgg项目里面执行test后再去执行，问题消失
+
