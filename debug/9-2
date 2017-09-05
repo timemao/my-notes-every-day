@@ -1,0 +1,21 @@
+9/2 debug
+1. vgg16的导入路径从官网获得
+
+2.cannot creating/destory cudnn handle:
+try:安装keras中文文档更新了cudnn5.1的软链接，sudo ldconfig出现问题，把那个软链接删除掉
+有用: sudo /home/timemao/anaconda3/bin/python test_vgg16.py
+参考：http://blog.csdn.net/u014629875/article/details/74356242
+
+3.借助vgg16-tensorflow完成特征提取，下一步是resize以及dqn部分
+参考博客以及github项目http://blog.csdn.net/helei001/article/details/53159690
+
+4.卸载了tensorflow（1.13.0）出现tf没有session；
+将tensorflow-gpu也卸载然后安装tensorflow-gpu==0.12.0
+
+5.tensorflow dropout
+keep_prob = tf.placeholder("float")
+h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)
+
+6.Python plot
+re： http://blog.csdn.net/u010668907/article/details/51114659
+re： http://blog.csdn.net/stereohomology/article/details/19700595
