@@ -1,0 +1,65 @@
+1.不要关机，不要关机！！！
+昨晚关机，今天电脑又无法启动：进入桌面后没有任何图标，应该是删除Python3.4的时候删除了很多文件
+t：1.sudo apt-get remove+install Ubuntu-desktop说有些文件破损，考虑sudo apt-get upgrade
+      2.reboot
+不起作用
+t2：https://stackoverflow.com/questions/23035310/ubuntu-unable-to-correct-problems-you-have-held-broken-packages上的第二种方法可以安装桌面，但是桌面图标还是没有！
+sudo apt-get remove libapache2-mod-wsgi
+sudo apt-get clean
+sudo apt-get autoclean
+then
+
+sudo apt-get update
+sudo apt-get install libapache2-mod-wsgi
+t3：http://blog.csdn.net/xww810319/article/details/17204575
+参考安装gdm和gnome-core，还是不能进入lightdm，可以选择gdm
+2: python数组长度
+
+3：Python没有swtich，但是可以参考实现
+http://blog.csdn.net/suiyunonghen/article/details/3734135
+
+4.a二维数组，a.shape返回数组大小
+5.小数乘数组，a=np.array([3,3]),0.3*a即可
+数组取整：np.around()如果定义了是整数数组，乘完小数会直接变为整数类型（四舍五入后的结果）
+6.Python类似hold on，
+import matplotlib.pyplot as plt
+
+x = range(10)
+y1 = [elem*2 for elem in x]
+plt.plot(x, y1)
+
+y2 = [elem**2 for elem in x]
+plt.plot(x, y2, 'r--')
+
+plt.show()
+7.Python打开图片后关闭
+# 图像显示
+plt.imshow(image)
+# 保存图像
+savefig(savename)
+# 暂停一秒钟
+plt.pause(1)
+# 关闭当前显示的图像
+plt.close()
+8.Python转换txt文件数据为数组
+a = numpy.loadtxt('odom.txt')
+9.参考http://blog.csdn.net/mx_windforce/article/details/9009455
+进行整数，浮点数，字符转换
+10.读取文件夹下的图片
+1 import os
+3 for filename in os.listdir(r"./file"):              #listdir的参数是文件夹的路径
+4     print ( filename)                                  #此时的filename是文件夹中文件的名称
+re：http://www.cnblogs.com/zangyu/p/5764905.html
+11.TensorFlow对tensor的reshape：tf.reshape
+12.E tensorflow/stream_executor/cuda/cuda_dnn.cc:385] could not create cudnn handle: CUDNN_STATUS_INTERNAL_ERROR
+E tensorflow/stream_executor/cuda/cuda_dnn.cc:352] could not destroy cudnn handle: CUDNN_STATUS_BAD_PARAM
+F tensorflow/core/kernels/conv_ops.cc:532] Check failed: stream->parent()->GetConvolveAlgorithms(&algorithms)
+问题：cuda无法执行，在sudo下可以执行
+13.运行中出现问题，手动进行了gpu释放，（手贱：不看问题直接瞎操作）
+参考这篇http://blog.csdn.net/jiandanjinxin/article/details/51940758进行的
+然后出问题 failed to synchronize the stop event
+failed to enqueue convolution stream
+据说是显存溢出，再到vgg16那个项目下进行了测试，然后把vgg16初始化的代码放到for外面，trainnetwork里面，然后就work了
+14.resize
+http://pstary.blog.51cto.com/blog/1466168/649435
+15.pyplot(linewidth)控制线条粗细
